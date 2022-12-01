@@ -7,6 +7,11 @@ $(document).ready(function(){
         $("#empezar").hide();
        
     });
+     Notification.requestPermission().then(perm => {
+        if (perm === 'granted') {
+          
+        }
+      });
     $("#btnEnviarr").click(function(){
         var puntuacion=0;
         if($('#p1r1').is(':checked')){
@@ -28,7 +33,7 @@ $(document).ready(function(){
             puntuacion+=1;
         }
         if($('#p7r7').is(':checked')){
-            puntuacion+=1;
+            puntuacion+=1; 
         }
         if($('#p8r8').is(':checked')){
             puntuacion+=1;
@@ -40,5 +45,14 @@ $(document).ready(function(){
             puntuacion+=1;
         }
        alert("Tu puntuacion es "+puntuacion + "/5");
+        alert("Tu puntuacion es "+puntuacion + "/5");
+       new Notification("Notificacion", {
+        body: 'realizaste el test',
+        icon: 'https://thumbs.dreamstime.com/b/signo-de-emoticono-feliz-emoji-apuntando-hacia-arriba-teniendo-una-idea-233677854.jpg',
+        vibrate: [100, 100, 100],
+        onClick: function () {
+          window.location = "https://google.es"
+        }
+      });
     });
 });
